@@ -1,0 +1,41 @@
+<%= form_for(@budget_line) do |f| %>
+  <% if @budget_line.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@budget_line.errors.count, "error") %> prohibited this budget_line from being saved:</h2>
+
+      <ul>
+      <% @budget_line.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :season_id %><br>
+    <%= f.select(:season_id, options_for_select(Season.all.map{|t| [t.season_name, t.id]}),{:prompt => "Select Season"},class: "form-control",autofocus: true, required: true) %>
+  </div>
+  <div class="field">
+    <%= f.label :budget_line_type %><br>
+    <%= f.text_field :budget_line_type %>
+  </div>
+  <div class="field">
+    <%= f.label :budget_line_subtype %><br>
+    <%= f.text_field :budget_line_subtype %>
+  </div>
+  <div class="field">
+    <%= f.label :member_id %><br>
+    <%= f.select(:member_id, options_for_select(Member.all.map{|t| [t.first_name, t.id]}),{:prompt => "Select Member"},class: "form-control", required: true) %>
+  </div>
+  <div class="field">
+    <%= f.label :budget_line_item_name %><br>
+    <%= f.text_field :budget_line_item_name %>
+  </div>
+  <div class="field">
+    <%= f.label :budgeted_amount %><br>
+    <%= f.text_field :budgeted_amount %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

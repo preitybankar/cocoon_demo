@@ -1,0 +1,44 @@
+<h1>Listing budget_lines</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Season</th>
+      <th>Budget line type</th>
+      <th>Budget line subtype</th>
+      <th>Member</th>
+      <th>Budget line item name</th>
+      <th>Budgeted amount</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @budget_lines.each do |budget_line| %>
+      <tr>
+        <td><%= budget_line.season.id %></td>
+        <td><%= budget_line.budget_line_type %></td>
+        <td><%= budget_line.budget_line_subtype %></td>
+        <td><%= budget_line.member_id %></td>
+        <td><%= budget_line.budget_line_item_name %></td>
+        <td><%= budget_line.budgeted_amount %></td>
+        <td><%= link_to 'Show', budget_line %></td>
+        <td><%= link_to 'Edit', edit_budget_line_path(budget_line) %></td>
+        <td><%= link_to 'Destroy', budget_line, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Budget line', new_budget_line_path %>
+
+<div id="budget_lines">
+  <%= form_for(@budget_line) do |f| %>
+    <%= render 'budget_line_fields', :f => budget_line %>
+  <div class="links">
+    <%= link_to_add_association 'add budget_line', f, :budget_lines %>
+  </div>
+  <%= f.submit %>
+</div>

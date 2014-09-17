@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  season_id: 
+  budget_line_type: MyString
+  budget_line_subtype: MyString
+  member_id: 1
+  budget_line_item_name: MyString
+  budgeted_amount: 1.5
+
+two:
+  season_id: 
+  budget_line_type: MyString
+  budget_line_subtype: MyString
+  member_id: 1
+  budget_line_item_name: MyString
+  budgeted_amount: 1.5

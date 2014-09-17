@@ -1,0 +1,2 @@
+$('#budgetLineForm').html("<%= escape_javascript(render(partial: 'index', 
+locals: { :budget_lines => @budget_lines })).html_safe %>")
